@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Narrative - Exploring How Stories Shape Reality</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-bg: #f5f6fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            margin-top: 4rem;
+            min-height: calc(100vh - 4rem);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+                        url('/api/placeholder/1200/600') center/cover;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #c0392b;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* Page Specific Styles */
+        .about-section {
+            background-color: var(--light-bg);
+            padding: 4rem 0;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .chatbot-widget {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        #content {
+            display: none;
+        }
+
+        /* Navigation for different pages */
+        [data-page].active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">The Narrative</a>
+            <nav>
+                <a href="#" onclick="showPage('home')">Home</a>
+                <a href="#" onclick="showPage('about')">About Us</a>
+                <a href="#" onclick="showPage('content')">Our Content</a>
+                <a href="#" onclick="showPage('faq')">FAQ</a>
+                <a href="#" onclick="showPage('contact')">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Page -->
+        <div data-page="home" class="active">
+            <section class="hero">
+                <h1>Exploring How Stories Shape Our Reality</h1>
+                <p>Uncover the hidden influences that shape our understanding of truth</p>
+                <a href="#" class="button" style="margin-top: 2rem;">Watch Latest Analysis</a>
+            </section>
+
+            <div class="container">
+                <div class="grid">
+                    <div class="card">
+                        <h2>Media Analysis</h2>
+                        <p>Deep dives into how media narratives shape public opinion and perception of reality.</p>
+                    </div>
+                    <div class="card">
+                        <h2>Cognitive Biases</h2>
+                        <p>Explore the psychological factors that influence our interpretation of information.</p>
+                    </div>
+                    <div class="card">
+                        <h2>Truth Seeking</h2>
+                        <p>Practical tools and methods for navigating competing narratives and finding objective truth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Us Page -->
+        <div data-page="about">
+            <div class="about-section">
+                <div class="container">
+                    <h2>About The Narrative</h2>
+                    <p>The Narrative is dedicated to exploring how stories and narratives influence our perception of reality. We believe that understanding the mechanisms behind narrative formation and propagation is crucial for maintaining objectivity in today's complex information landscape.</p>
+                    <div class="grid" style="margin-top: 3rem;">
+                        <div class="card">
+                            <h3>Our Mission</h3>
+                            <p>To empower individuals with the tools and understanding needed to navigate competing narratives and find truth in a world of information warfare.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Our Approach</h3>
+                            <p>Through in-depth analysis, expert interviews, and careful examination of case studies, we break down complex narrative structures and their impact on society.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Page -->
+        <div data-page="content">
+            <div class="container">
+                <h2>Our Content</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Video Analysis</h3>
+                        <p>Each video provides detailed analysis of current events, media coverage, and competing narratives, helping you develop critical thinking skills.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Educational Series</h3>
+                        <p>Learn about cognitive biases, information warfare, and the psychology of belief formation through our structured educational content.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Case Studies</h3>
+                        <p>Real-world examples of how narratives shape public opinion and influence decision-making at individual and societal levels.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Page -->
+        <div data-page="faq">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>How often do you release new content?</h3>
+                    <p>We release new analysis videos weekly, focusing on current events and timeless concepts in narrative formation.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How can I support The Narrative?</h3>
+                    <p>You can support us by subscribing to our YouTube channel, sharing our content, and engaging in discussions.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you offer consulting services?</h3>
+                    <p>Yes, we offer consulting services for organizations looking to understand and improve their narrative strategies.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div data-page="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <div class="contact-form">
+                    <input type="text" placeholder="Your Name">
+                    <input type="email" placeholder="Your Email">
+                    <textarea rows="5" placeholder="Your Message"></textarea>
+                    <button class="button">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 The Narrative. All rights reserved.</p>
+    </footer>
+
+    <div class="chatbot-widget" onclick="alert('Chatbot functionality coming soon!')">
+        💬
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('[data-page]').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.querySelector(`[data-page="${pageId}"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
